@@ -1,6 +1,6 @@
 /**
  * @name storm-multi-select: 
- * @version 0.1.0: Tue, 23 Jan 2018 13:29:18 GMT
+ * @version 0.1.0: Tue, 23 Jan 2018 13:39:12 GMT
  * @author stormid
  * @license MIT
  */
@@ -13,12 +13,10 @@ const init = (sel, opts) => {
 
 	if(!els.length) return console.warn('Multi-select not initialised, no augmentable elements found');
     
-	return els.map(el => ({
-		[el.getAttribute('name')]: Object.assign(Object.create(componentPrototype), {
+	return els.map(el => Object.assign(Object.create(componentPrototype), {
 										node: el,
 										settings: Object.assign({}, defaults, opts)
-									}).init()
-	}));
+									}).init());
 };
 
 export default { init };

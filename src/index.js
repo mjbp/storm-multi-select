@@ -7,12 +7,10 @@ const init = (sel, opts) => {
 
 	if(!els.length) return console.warn('Multi-select not initialised, no augmentable elements found');
     
-	return els.map(el => ({
-		[el.getAttribute('name')]: Object.assign(Object.create(componentPrototype), {
+	return els.map(el => Object.assign(Object.create(componentPrototype), {
 										node: el,
 										settings: Object.assign({}, defaults, opts)
-									}).init()
-	}));
+									}).init());
 };
 
 export default { init };
